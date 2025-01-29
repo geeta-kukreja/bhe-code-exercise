@@ -24,6 +24,7 @@ To set up the environment and run tests:
 
 1. **Run test cases**  
    ```sh  
+   cd python
    python -m unittest python/test_sieve.py  
 
 ### Additional Considerations

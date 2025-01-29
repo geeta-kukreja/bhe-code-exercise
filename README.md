@@ -2,39 +2,31 @@
 
 ## The Sieve of Eratosthenes
 
-Prime numbers have many modern day applications and a long history in 
-mathematics. Utilizing your own resources, research the sieve of Eratosthenes,
-an algorithm for generating prime numbers. Based on your research, implement 
-an API that allows the caller to retrieve the Nth prime number.
-Some stub code and a test suite have been provided as a convenience. However, 
-you are encouraged to deviate from Eratosthenes's algorithm, modify the 
-existing functions/methods, or anything else that might showcase your ability; 
-provided the following requirements are satisfied.
+This project implements an API to retrieve the Nth prime number using 0-based indexing, where the 0th prime number is 2. The implementation is optimized beyond the traditional Sieve of Eratosthenes, incorporating dynamic upper-bound estimation and efficient sieving techniques to handle large inputs efficiently.
 
-You must author your work in Go, JavaScript/TypeScript, Python, or C# - all 
-other language submissions will be rejected. Stub code has been provided, so 
-please choose from one of the provided language stubs that is most 
-relevant to your skill set and the position you are applying for.
+Implementation Details
+-The solution is implemented in Python.
+-It dynamically estimates the upper bound needed to find the Nth prime using logarithmic approximation, ensuring efficient memory and computation usage.
+-A bit-array-based sieve is used to mark primes, significantly reducing space complexity compared to traditional boolean lists.
+-The algorithm is optimized to reuse previously computed primes for faster sieving in cases where additional primes are needed.
 
-### Requirements
+### Installation and setup
 
-- Fork this repo to implement your solution
-- The library package provides an API for retrieving the Nth prime number using 0-based indexing where the 0th prime number is 2
-- Interviewers must be able to execute a suite of tests
-  - Go: `go test ./...`
-  - C#: `dotnet test Sieve.Tests`
-  - Javascript: `npm run test`
-  - Python: `python -m unittest test_sieve.py`
-- Your solution is committed to your project's `main` branch, no uncommitted changes or untracked files please
-- Submit the link to your public fork for review
+### Installation & Setup  
 
-### Considerations
+To set up the environment and run tests:  
 
-You may add more tests or restructure existing tests, but you may NOT change or remove
-the existing test outcomes; eg- f(0)=2, f(19)=71, f(99)=541, ..., f(10000000)=179424691 
+1. **Install dependencies**  
+   ```sh  
+   pip install -r python/requirements.txt  
 
-During the technical interview, your submission will be discussed, and you will be evaluated in the following areas:
+1. **Run test cases**  
+   ```sh  
+   python -m unittest python/test_sieve.py  
 
-- Technical ability
-- Communication skills
-- Work habits and complementary skills
+### Additional Considerations
+
+-The implementation adheres to the requirement that - f(0)=2, f(19)=71, f(99)=541, ..., f(10000000)=179424691 , f(100000000)=2038074751
+-Additional test cases have been added to further validate the correctness and efficiency of the implementation.
+-The algorithm successfully computes the 10⁸th prime number, but this test takes approximately 70 seconds on my system. If you prefer a faster test run, you may comment out this test case in test_sieve.py. The rest of the test cases execute relatively quickly
+
